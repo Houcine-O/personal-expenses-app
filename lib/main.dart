@@ -14,6 +14,10 @@ class ExpensesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Expenses App',
+      theme: ThemeData(
+        primarySwatch: Colors.indigo,
+        accentColor: Colors.indigoAccent,
+      ),
       home: MyHomePage(),
     );
   }
@@ -84,7 +88,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.purple,
         child: Icon(Icons.add),
         onPressed: () => _startAddTransaction(context),
       ),

@@ -20,7 +20,7 @@ class ExpensesApp extends StatelessWidget {
         fontFamily: 'Quicksand',
         textTheme: ThemeData.light().textTheme.copyWith(
             titleMedium: TextStyle(
-                fontFamily: 'OpenSans',
+                fontFamily: 'Quicksand',
                 fontSize: 20,
                 fontWeight: FontWeight.bold)),
         appBarTheme: AppBarTheme(

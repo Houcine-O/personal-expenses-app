@@ -13,18 +13,19 @@ class Chart extends StatelessWidget {
       var weekDay = DateTime.now().subtract(Duration(
         days: index,
       ));
-      var sum;
+      double sum = 0.00;
       for (var i = 0; i < recentTranx.length; i++) {
         if (weekDay.day == recentTranx[i].date?.day &&
             weekDay.month == recentTranx[i].date?.month &&
             weekDay.year == recentTranx[i].date?.year) {
-          sum += recentTranx[i].amount;
+          sum += recentTranx[i].amount!;
         }
       }
 
-      print(DateFormat.E(weekDay));
-      print(sum);
-      return {'day': DateFormat.E(weekDay), 'amount': sum};
+      return {
+        'day': DateFormat.E().format(weekDay).substring(0, 1),
+        'amount': sum
+      };
     });
   }
 

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import './models/transactions.dart';
 import './widgets/new_transaction.dart';
 import './widgets/transaction_list.dart';
+import './widgets/chart.dart';
 
 void main() {
   runApp(ExpensesApp());
@@ -43,6 +44,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [];
+
+  List<Transaction> get _recentTranx {
+    return _userTransactions.where((tx) {
+      return tx.date!.isAfter(
+        DateTime.now().subtract(
+          Duration(days: 7),
+        ),
+      );
+    }).toList();
+  }
 
   void _addTransaction(String title, double amount) {
     final newtx = Transaction(
@@ -85,13 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
-              child: Card(
-                color: Colors.lightBlue,
-                elevation: 5,
-                child: Text("Chart"),
-              ),
-            ),
+            Chart(_recentTranx),
             TransactionList(_userTransactions),
           ],
         ),

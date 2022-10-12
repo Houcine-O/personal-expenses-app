@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import 'chart_bar.dart';
 import '../models/transactions.dart';
 
 class Chart extends StatelessWidget {
@@ -29,12 +30,26 @@ class Chart extends StatelessWidget {
     });
   }
 
+  double get totalSpending {
+    return groupedTranx.fold(0.0, (sum, element) {
+      return sum + (element['amount'] as double);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 6,
       margin: EdgeInsets.all(20),
-      child: Row(children: []),
+      child: Row(
+        children: groupedTranx.map((elt) {
+          return Bar(
+            elt['day'] as String,
+            elt['amount'] as double,
+            totalSpending == 0 ? 0 : (elt['amount'] as double) / totalSpending,
+          );
+        }).toList(),
+      ),
     );
   }
 }

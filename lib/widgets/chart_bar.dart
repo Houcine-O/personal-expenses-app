@@ -11,7 +11,7 @@ class Bar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('${amountSpent.toStringAsFixed(0)}DA'),
+        FittedBox(child: Text('${amountSpent.toStringAsFixed(0)}DA')),
         SizedBox(
           height: 4,
         ),

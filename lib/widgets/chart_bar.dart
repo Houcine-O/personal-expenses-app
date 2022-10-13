@@ -11,7 +11,12 @@ class Bar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        FittedBox(child: Text('${amountSpent}DA')),
+        Container(
+          height: 20,
+          child: FittedBox(
+            child: Text('${amountSpent}DA'),
+          ),
+        ),
         SizedBox(
           height: 4,
         ),

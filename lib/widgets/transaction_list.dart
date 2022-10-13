@@ -30,7 +30,6 @@ class TransactionList extends StatelessWidget {
             )
           : ListView.builder(
               itemBuilder: (context, index) {
-                //.addPattern()
                 return Card(
                   margin: EdgeInsets.symmetric(
                     vertical: 5,

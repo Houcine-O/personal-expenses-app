@@ -14,7 +14,7 @@ class Chart extends StatelessWidget {
       var weekDay = DateTime.now().subtract(Duration(
         days: index,
       ));
-      double sum = 0.00;
+      int sum = 0;
       for (var i = 0; i < recentTranx.length; i++) {
         if (weekDay.day == recentTranx[i].date?.day &&
             weekDay.month == recentTranx[i].date?.month &&
@@ -30,9 +30,9 @@ class Chart extends StatelessWidget {
     });
   }
 
-  double get totalSpending {
-    return groupedTranx.fold(0.0, (sum, element) {
-      return sum + (element['amount'] as double);
+  int get totalSpending {
+    return groupedTranx.fold(0, (sum, element) {
+      return sum + (element['amount'] as int);
     });
   }
 
@@ -50,10 +50,8 @@ class Chart extends StatelessWidget {
               fit: FlexFit.tight,
               child: Bar(
                 elt['day'] as String,
-                elt['amount'] as double,
-                totalSpending == 0
-                    ? 0
-                    : (elt['amount'] as double) / totalSpending,
+                elt['amount'] as int,
+                totalSpending == 0 ? 0 : (elt['amount'] as int) / totalSpending,
               ),
             );
           }).toList(),

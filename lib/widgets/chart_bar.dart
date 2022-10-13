@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Bar extends StatelessWidget {
-  final double amountSpent;
+  final int amountSpent;
   final double spentPercntg;
   final String label;
 
@@ -11,7 +11,7 @@ class Bar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        FittedBox(child: Text('${amountSpent.toStringAsFixed(0)}DA')),
+        FittedBox(child: Text('${amountSpent}DA')),
         SizedBox(
           height: 4,
         ),

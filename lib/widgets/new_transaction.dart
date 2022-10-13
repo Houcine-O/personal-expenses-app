@@ -16,10 +16,10 @@ class _NewTransactionState extends State<NewTransaction> {
 
   void submitData() {
     String title = titleController.text;
-    double amount = double.parse(amountController.text);
+    int amount = int.parse(amountController.text);
 
     if (title.isEmpty || amount <= 0) return;
-    widget.addNewTransaction(title, double.parse(amountController.text));
+    widget.addNewTransaction(title, int.parse(amountController.text));
 
     Navigator.of(context).pop();
   }

@@ -30,47 +30,15 @@ class TransactionList extends StatelessWidget {
             )
           : ListView.builder(
               itemBuilder: (context, index) {
-                return Card(
-                  child: Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.all(10),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 2,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                        ),
-                        child: Text(
-                          style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
-                          '${transactions[index].amount?.toStringAsFixed(0)} DA',
-                        ),
+                //.addPattern("EEEE d MMMM yyyy")
+                return ListTile(
+                  leading: FittedBox(
+                    child: CircleAvatar(
+                      radius: 30,
+                      child: Text(
+                        '${transactions[index].amount}' 'DA',
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            transactions[index].title as String,
-                            style: Theme.of(context).textTheme.titleMedium,
-                          ),
-                          Text(
-                            //MMMMdEEEE
-                            DateFormat()
-                                .addPattern("EEEE d MMMM yyyy")
-                                .format(transactions[index].date as DateTime),
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.grey,
-                            ),
-                          )
-                        ],
-                      )
-                    ],
+                    ),
                   ),
                 );
               },

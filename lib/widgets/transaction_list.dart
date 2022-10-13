@@ -40,8 +40,13 @@ class TransactionList extends StatelessWidget {
                     leading: FittedBox(
                       child: CircleAvatar(
                         radius: 30,
-                        child: Text(
-                          '${transactions[index].amount}' 'DA',
+                        child: Padding(
+                          padding: EdgeInsets.all(2),
+                          child: FittedBox(
+                            child: Text(
+                              '${transactions[index].amount}' + 'DA',
+                            ),
+                          ),
                         ),
                       ),
                     ),
